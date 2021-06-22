@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>UIView的alpha、hidden和opaque属性 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="UIView的alpha、hidden和opaque属性alpha属性值为浮点类型的值，取值范围从0到1.0，表示从完全透明到完全不透明。当把alpha的值设置成0后：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIView的alpha、hidden和opaque属性">
+<meta property="og:url" content="http://example.com/2017/02/08/UIView%E7%9A%84alpha%E3%80%81hidden%E5%92%8Copaque%E5%B1%9E%E6%80%A7-md/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="UIView的alpha、hidden和opaque属性alpha属性值为浮点类型的值，取值范围从0到1.0，表示从完全透明到完全不透明。当把alpha的值设置成0后：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-02-08T07:17:07.000Z">
+<meta property="article:modified_time" content="2021-06-22T07:45:51.928Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-UIView的alpha、hidden和opaque属性-md" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/02/08/UIView%E7%9A%84alpha%E3%80%81hidden%E5%92%8Copaque%E5%B1%9E%E6%80%A7-md/" class="article-date">
+  <time class="dt-published" datetime="2017-02-08T07:17:07.000Z" itemprop="datePublished">2017-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      UIView的alpha、hidden和opaque属性
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="UIView的alpha、hidden和opaque属性"><a href="#UIView的alpha、hidden和opaque属性" class="headerlink" title="UIView的alpha、hidden和opaque属性"></a>UIView的alpha、hidden和opaque属性</h1><h2 id="alpha"><a href="#alpha" class="headerlink" title="alpha"></a>alpha</h2><p>属性值为浮点类型的值，取值范围从0到1.0，表示从完全透明到完全不透明。<br>当把alpha的值设置成0后：    </p>
+<span id="more"></span>
+<blockquote>
+<p>当前的UIView和其subview都会被隐藏，而不管subview的alpha值是多少<br>当前UIView会从响应链中移除，而响应链中的下一个会成为第一响应者<br>alpha具有动画效果。当alpha为0时，跟hidden为YES时效果一样，但是alpha主要用于实现隐藏的动画效果，在动画块中将hidden设置为YES没有动画效果。<br>alpha默认值是1.0</p>
+</blockquote>
+<h2 id="hidden"><a href="#hidden" class="headerlink" title="hidden"></a>hidden</h2><p>属性值为浮点类型，表示UIView是否隐藏，默认是NO。<br>当值为YES时：  </p>
+<blockquote>
+<p>当前UIView和其subview都会被隐藏<br>当前UIView也会从响应链中移除   </p>
+</blockquote>
+<h2 id="opaque"><a href="#opaque" class="headerlink" title="opaque"></a>opaque</h2><p>该属性为BOOL值，UIView的默认值是YES，但UIButton等子类的默认值都是NO。  </p>
+<p>先了解绘图系统的一些原理：屏幕上的每个像素点都是通过RGBA值（Red、Green、Blue三原色再配上Alpha透明度）表示的，当纹理（UIView在绘图系统中对应的表示项）出现重叠时，GPU会按照下面的公式计算重叠部分的像素（这就是所谓的“合成”）：</p>
+<p>Result = Source + Destination * (1 - SourceAlpha)</p>
+<p>Result是结果RGB值，Source为处在重叠顶部图层的RGB值，Destination为处在重叠底部图层的RGB值。  </p>
+<p>通过公式发现：当SourceAlpha为1时，绘图系统认为下面的纹理全部被遮盖住了，Result等于Source，直接省去了计算！尤其在重叠的层数比较多的时候，完全不同考虑底下有多少层，直接用当前层的数据显示即可，这样大大节省了GPU的工作量，提高了效率。<br>当opaque为YES时，SourceAlpha为1。opaque就是绘图系统向UIView开放的一个性能开关，开发者根据当前UIView的情况，将opaque设置为YES，绘图系统会根据此值进行优化。所以，如果在开发时某UIView是不透明的，就将opaque设置为YES，能优化显示效率。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/02/08/UIView%E7%9A%84alpha%E3%80%81hidden%E5%92%8Copaque%E5%B1%9E%E6%80%A7-md/" data-id="ckq7qvhmk0006yjstbvyp783u" data-title="UIView的alpha、hidden和opaque属性" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/18/Masonry-source-code-learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Masonry source code learning
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/06/instancetype%E5%92%8Cid%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">instancetype和id区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css-checkbox/">css checkbox</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/22/GCD/">GCD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/12/css-custom-checkbox/">css 定制 checkbox</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/19/ios-push-notification/">ios push &amp; notification</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/18/Masonry-source-code-learning/">Masonry source code learning</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>css 定制 checkbox | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本文介绍如何通过css定制checkbox选择框">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css 定制 checkbox">
+<meta property="og:url" content="http://example.com/2017/09/12/css-custom-checkbox/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文介绍如何通过css定制checkbox选择框">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-09-12T08:15:33.000Z">
+<meta property="article:modified_time" content="2021-06-22T07:45:51.929Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-css-custom-checkbox" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/09/12/css-custom-checkbox/" class="article-date">
+  <time class="dt-published" datetime="2017-09-12T08:15:33.000Z" itemprop="datePublished">2017-09-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css-checkbox/">css checkbox</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      css 定制 checkbox
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本文介绍如何通过css定制checkbox选择框</p>
+<span id="more"></span>
+
+<blockquote>
+<p>实现思路：  </p>
+</blockquote>
+<p>纯css实现的主要手段是利用label标签的模拟功能。label的for属性可以关联一个具体的input元素，即使这个input本身不可被用户可见，有个与它对应的label后，用户可以直接通过和label标签交互来替代原生的input——而这给我们的样式模拟留下了空间。简而言之就是</p>
+<blockquote>
+<p>隐藏原生input，样式定义的过程留给label （那为什么不直接改变checkbox的样式？因为checkbox作为浏览器默认组件，样式更改上并没有label那么方便，很多属性对checkbox都是不起作用的，比如background,而label在样式上基本和div一样’任人宰割’)      </p>
+</blockquote>
+<p>而在选择事件上，由于css的“相邻选择符(E+F)”的存在，让我们可以直接利用html的默认checkbox，免去了js模拟选择的麻烦。</p>
+<h3 id="1-同级label和input标签"><a href="#1-同级label和input标签" class="headerlink" title="1. 同级label和input标签"></a>1. 同级label和input标签</h3><blockquote>
+<p>html</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;custom-checkbox&quot;&gt;</span><br><span class="line">  &lt;input type=&quot;checkbox&quot; class=&quot;magic-checkbox&quot; id=&quot;input_id&quot; v-on:click.stop/&gt;</span><br><span class="line">  &lt;label v-bind:class=&quot;lableClass&quot; for=&quot;input_id&quot; v-on:click.stop&gt;&#123;&#123;show_text&#125;&#125;&lt;/label&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>css</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">/*先隐藏真正的checkboxbox*/</span><br><span class="line">.magic-checkbox &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*//为与checkbox搭配的label使用样式,//相对定位，方便其内容的伪元素进行定位*/</span><br><span class="line">.magic-checkbox + label &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  display: block;</span><br><span class="line">  padding-left: 30px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  color: #aaa;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*label添加:before伪元素，用于生成一个带边界的正方形，模拟复选框的轮廓*/</span><br><span class="line">.magic-checkbox + label:before &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  content: &#x27;&#x27;;</span><br><span class="line">  border: 1px solid #dadada;</span><br><span class="line">  border-radius: 3px;</span><br><span class="line">  background-color: white;</span><br><span class="line">&#125;</span><br><span class="line">/*为checkbox添加:after伪元素，作用是生成一个√图形，模拟checkbox选中状态，未选中状态下会被隐藏*/</span><br><span class="line">/*实现√图形很简单：设置一个长方形，去掉其上边界和左边界，剩下的2个边界旋转45度就得到√形状  */</span><br><span class="line">.magic-checkbox + label:after &#123;</span><br><span class="line">    box-sizing: border-box;</span><br><span class="line">    /*width: 6px;*/</span><br><span class="line">    /*height: 12px;*/</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">    -webkit-transform: rotate(45deg);</span><br><span class="line">    -moz-transform: rotate(45deg);</span><br><span class="line">    -o-transform: rotate(45deg);</span><br><span class="line">    -ms-transform: rotate(45deg);</span><br><span class="line">    border: 2px solid #fff;</span><br><span class="line">    border-top: none;</span><br><span class="line">    border-left: none;</span><br><span class="line">    position: absolute;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    content: &#x27;&#x27;;</span><br><span class="line">    opacity: 0.2;</span><br><span class="line">  &#125;</span><br><span class="line"> /*单击label，隐藏的checkbox为checked状态，这时设置checked状态下搭配label的:before伪元素背景和边界颜色*/</span><br><span class="line">  .magic-checkbox:checked + label:before &#123;</span><br><span class="line">    animation-name: none;</span><br><span class="line">    border: white;</span><br><span class="line">    background: #ffd54f;</span><br><span class="line">  &#125;</span><br><span class="line">/*checked状态的checkbox搭配的label伪元素:after此时设置显示，那么√就显示出来了*/</span><br><span class="line">  .magic-checkbox:checked + label:after &#123;</span><br><span class="line">    opacity: 1;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .magic-checkbox:disabled + label:before &#123;</span><br><span class="line">    background-color: #d8d8d8;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .magic-checkbox:disabled + label:after &#123;</span><br><span class="line">    opacity: 1;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /*针对login组件和avatar组件中的使用设计两中size的class：box-login、box-avatar*/</span><br><span class="line">  .magic-checkbox + label.box-login:before &#123;</span><br><span class="line">    width: 18px;</span><br><span class="line">    height: 18px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .magic-checkbox + label.box-login:after &#123;</span><br><span class="line">    top: 2px;</span><br><span class="line">    left: 7px;</span><br><span class="line">    width: 6px;</span><br><span class="line">    height: 12px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .magic-checkbox + label.box-avatar:before &#123;</span><br><span class="line">    width: 12px;</span><br><span class="line">    height: 12px;</span><br><span class="line">  &#125;</span><br><span class="line">  .magic-checkbox + label.box-avatar:after &#123;</span><br><span class="line">    top: 1px;</span><br><span class="line">    left: 4px;</span><br><span class="line">    width: 4px;</span><br><span class="line">    height: 8px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>问题：</strong><br>同级的input使用id与label关联起来，当页面需要使用多个checkbox，特别在某种列表中循环生成多项，此时必须使用某种方式保证id的唯一，否则点击事件的触发会出错。     </p>
+<p>解决方案：<br>可以用 js 生成动态 id 吧。在循环中给每个 input 生成 id = “awesome”+i，同时把 label 的 for 属性值也设置成一样的。下面是简单的示例：    </p>
+<pre><code>var body=document.getElementsByTagName(&#39;body&#39;)[0];
+        for(var i=0;i&lt;3;i++)&#123;
+            var input=document.createElement(&quot;input&quot;);
+            input.id=&quot;input&quot;+i;
+            var label=document.createElement(&quot;label&quot;);
+            label.setAttribute(&quot;for&quot;,&quot;input&quot;+i);
+            label.innerHTML=&quot;点击&quot;;
+            body.appendChild(label)
+            body.appendChild(input)
+        &#125;
+</code></pre>
+<p>但是页面中有多个列表需要展示checkbox时，逐一操作,保证唯一性，会很繁琐。      </p>
+<p><em>所以使用下面2中的方式定制checkbox。</em></p>
+<h3 id="2-label内部嵌套input"><a href="#2-label内部嵌套input" class="headerlink" title="2. label内部嵌套input"></a>2. label内部嵌套input</h3><blockquote>
+<p>html</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;label class=&quot;checkbox-label&quot; v-on:click.stop&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; class=&quot;checkbox-input&quot;/&gt;</span><br><span class="line">    &lt;i v-bind:class=&quot;lableClass&quot;&gt;&lt;/i&gt;&#123;&#123;show_text&#125;&#125;</span><br><span class="line">  &lt;/label&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>css</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">.checkbox-label&#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin-bottom: 10px;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input&#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line">.checkbox-input + i&#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  /*width: 18px;*/</span><br><span class="line">  /*height: 18px;*/</span><br><span class="line">  margin-right: 10px;</span><br><span class="line">  background: white;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  content: &#x27;&#x27;;</span><br><span class="line">  border: 1px solid #dadada;</span><br><span class="line">  border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input:checked + i &#123;</span><br><span class="line">  background-color: #ffd54f;</span><br><span class="line">  border-color: transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input + i:after &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  /*top: 4px;*/</span><br><span class="line">  /*left: 7px;*/</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  /*width: 6px;*/</span><br><span class="line">  /*height: 12px;*/</span><br><span class="line">  transform: rotate(45deg);</span><br><span class="line">  -webkit-transform: rotate(45deg);</span><br><span class="line">  -moz-transform: rotate(45deg);</span><br><span class="line">  -o-transform: rotate(45deg);</span><br><span class="line">  -ms-transform: rotate(45deg);</span><br><span class="line">  border: 2px solid transparent;</span><br><span class="line">  border-top: none;</span><br><span class="line">  border-left: none;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  content: &#x27;&#x27;;</span><br><span class="line">  opacity: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input:checked + i:after &#123;</span><br><span class="line">  border-color: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input + i.box-login &#123;</span><br><span class="line">  width: 18px;</span><br><span class="line">  height: 18px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input + i.box-login:after &#123;</span><br><span class="line">  top: 4px;</span><br><span class="line">  left: 7px;</span><br><span class="line">  width: 6px;</span><br><span class="line">  height: 12px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.checkbox-input + i.box-avatar &#123;</span><br><span class="line">  width: 12px;</span><br><span class="line">  height: 12px;</span><br><span class="line">&#125;</span><br><span class="line">.checkbox-input + i.box-avatar:after &#123;</span><br><span class="line">  top: 6px;</span><br><span class="line">  left: 4px;</span><br><span class="line">  width: 4px;</span><br><span class="line">  height: 8px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-retained-issues"><a href="#3-retained-issues" class="headerlink" title="3. retained issues"></a>3. retained issues</h3><p>1）如何动态设置size<br>目前是通过设置额外的class，如box-avatar、box-login，实现定制在不同应用场景，展示的size等具体效果。<br>具体实现如下：</p>
+<blockquote>
+<p>//html   </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//通过&lt;i&gt;标签的class 绑定到实际场景对应的style</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;label class=&quot;checkbox-label&quot; &gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; class=&quot;checkbox-input&quot; :disabled=&quot;disabled&quot;/&gt;</span><br><span class="line">    &lt;i v-bind:class=&quot;boxtype&quot;&gt;&lt;/i&gt;&#123;&#123;show_text&#125;&#125;</span><br><span class="line">  &lt;/label&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ts   </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//声明一个枚举类型</span><br><span class="line">export enum CheckboxType &#123;</span><br><span class="line">  box_login = 1,</span><br><span class="line">  box_avatar = 2,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//在自定义的checkbox组件中声明一个prop，用于定制：type </span><br><span class="line">props: &#123;</span><br><span class="line">    type: CheckboxType,</span><br><span class="line">  &#125;</span><br><span class="line">//根据使用该组件的地方传递过来的type，映射到实际的class类型，达到定制的效果</span><br><span class="line">switch (this.$props.type) &#123;</span><br><span class="line">      case 1:</span><br><span class="line">        this.boxtype = CheckboxType[1];</span><br><span class="line">        break;</span><br><span class="line">      case 2:</span><br><span class="line">        this.boxtype = CheckboxType[2];</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>希望发现更简便的定制方式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2017/09/12/css-custom-checkbox/" data-id="ckq7qvhmi0003yjstampj8812" data-title="css 定制 checkbox" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/06/22/GCD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          GCD
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/19/ios-push-notification/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ios push &amp; notification</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css-checkbox/">css checkbox</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/22/GCD/">GCD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/12/css-custom-checkbox/">css 定制 checkbox</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/19/ios-push-notification/">ios push &amp; notification</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/18/Masonry-source-code-learning/">Masonry source code learning</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
