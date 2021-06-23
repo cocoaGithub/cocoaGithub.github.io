@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   
   
-  <title>ScrollView + Autolayout | Cocoa&#39;s blogs</title>
+  <title>ScrollView + Autolayout | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="ScrollView可见区域和内容区域   ScrollView中添加子视图有以下两种方式   为UIScrollView中的子视图和UIScrollView外的视图添加一个固定位置的约束   人为地给UIScrollView添加一个“内容区域”的视图     进阶：scrollView+autolayout+子视图自动撑高">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ScrollView + Autolayout">
-<meta property="og:url" content="https://github.com/cocoaGithub/cocoaGithub.github.io/tree/2021/06/22/ScrollView-Autolayout/index.html">
-<meta property="og:site_name" content="Cocoa&#39;s blogs">
+<meta property="og:url" content="http://example.com/2021/06/22/ScrollView-Autolayout/index.html">
+<meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ScrollView可见区域和内容区域   ScrollView中添加子视图有以下两种方式   为UIScrollView中的子视图和UIScrollView外的视图添加一个固定位置的约束   人为地给UIScrollView添加一个“内容区域”的视图     进阶：scrollView+autolayout+子视图自动撑高">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png">
@@ -23,10 +23,10 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png">
   
-    <link rel="alternate" href="/cocoaGithub/cocoaGithub.github.io/tree/atom.xml" title="Cocoa's blogs" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/cocoaGithub/cocoaGithub.github.io/tree/favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
   
   
     
@@ -34,11 +34,11 @@
 
   
   
-<link rel="stylesheet" href="/cocoaGithub/cocoaGithub.github.io/tree/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
   
     
-<link rel="stylesheet" href="/cocoaGithub/cocoaGithub.github.io/tree/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -51,7 +51,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/cocoaGithub/cocoaGithub.github.io/tree/" id="logo">Cocoa&#39;s blogs</a>
+        <a href="/" id="logo">Hexo</a>
       </h1>
       
     </div>
@@ -59,19 +59,19 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/cocoaGithub/cocoaGithub.github.io/tree/">Home</a>
+          <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="/cocoaGithub/cocoaGithub.github.io/tree/archives">Archives</a>
+          <a class="main-nav-link" href="/archives">Archives</a>
         
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/cocoaGithub/cocoaGithub.github.io/tree/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/cocoaGithub/cocoaGithub.github.io/tree"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -80,12 +80,12 @@
       <div class="outer">
         <section id="main"><article id="post-ScrollView-Autolayout" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/cocoaGithub/cocoaGithub.github.io/tree/2021/06/22/ScrollView-Autolayout/" class="article-date">
+    <a href="/2021/06/22/ScrollView-Autolayout/" class="article-date">
   <time class="dt-published" datetime="2021-06-22T08:11:19.000Z" itemprop="datePublished">2021-06-22</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/cocoaGithub/cocoaGithub.github.io/tree/categories/IOS/">IOS</a>
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
   </div>
 
   </div>
@@ -205,11 +205,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/cocoaGithub/cocoaGithub.github.io/tree/2021/06/22/ScrollView-Autolayout/" data-id="ckq82ni5i0002t8st3c78fx4b" data-title="ScrollView + Autolayout" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/06/22/ScrollView-Autolayout/" data-id="ckq82ni5i0002t8st3c78fx4b" data-title="ScrollView + Autolayout" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/tags/autolayout/" rel="tag">autolayout</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autolayout/" rel="tag">autolayout</a></li></ul>
 
     </footer>
   </div>
@@ -217,8 +217,17 @@
     
 <nav id="article-nav">
   
+    <a href="/2021/06/23/OC%E5%8D%8F%E8%AE%AE%E4%B8%AD%E5%A3%B0%E6%98%8E%E5%B1%9E%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OC协议中声明属性
+        
+      </div>
+    </a>
   
-    <a href="/cocoaGithub/cocoaGithub.github.io/tree/2021/06/22/GCD/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2021/06/22/GCD/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">GCD疑问</div>
     </a>
@@ -237,7 +246,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/categories/IOS/">IOS</a></li><li class="category-list-item"><a class="category-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/categories/css-checkbox/">css checkbox</a></li><li class="category-list-item"><a class="category-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/categories/essay/">essay</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IOS/">IOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css-checkbox/">css checkbox</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li></ul>
     </div>
   </div>
 
@@ -247,7 +256,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/tags/autolayout/" rel="tag">autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/tags/%E9%80%9A%E7%9F%A5/" rel="tag">通知</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/autolayout/" rel="tag">autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E7%9F%A5/" rel="tag">通知</a></li></ul>
     </div>
   </div>
 
@@ -257,7 +266,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/cocoaGithub/cocoaGithub.github.io/tree/tags/autolayout/" style="font-size: 10px;">autolayout</a> <a href="/cocoaGithub/cocoaGithub.github.io/tree/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/cocoaGithub/cocoaGithub.github.io/tree/tags/%E5%B8%83%E5%B1%80/" style="font-size: 20px;">布局</a> <a href="/cocoaGithub/cocoaGithub.github.io/tree/tags/%E9%80%9A%E7%9F%A5/" style="font-size: 10px;">通知</a>
+      <a href="/tags/autolayout/" style="font-size: 10px;">autolayout</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 20px;">布局</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E9%80%9A%E7%9F%A5/" style="font-size: 10px;">通知</a>
     </div>
   </div>
 
@@ -266,7 +275,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/cocoaGithub/cocoaGithub.github.io/tree/archives/2017/01/">January 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
     </div>
   </div>
 
@@ -279,23 +288,23 @@
       <ul>
         
           <li>
-            <a href="/cocoaGithub/cocoaGithub.github.io/tree/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
+            <a href="/2021/06/23/OC%E5%8D%8F%E8%AE%AE%E4%B8%AD%E5%A3%B0%E6%98%8E%E5%B1%9E%E6%80%A7/">OC协议中声明属性</a>
           </li>
         
           <li>
-            <a href="/cocoaGithub/cocoaGithub.github.io/tree/2021/06/22/GCD/">GCD疑问</a>
+            <a href="/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
           </li>
         
           <li>
-            <a href="/cocoaGithub/cocoaGithub.github.io/tree/2017/09/12/css-custom-checkbox/">css 定制 checkbox</a>
+            <a href="/2021/06/22/GCD/">GCD疑问</a>
           </li>
         
           <li>
-            <a href="/cocoaGithub/cocoaGithub.github.io/tree/2017/04/19/ios-push-notification/">ios push &amp; notification</a>
+            <a href="/2017/09/12/css-custom-checkbox/">css 定制 checkbox</a>
           </li>
         
           <li>
-            <a href="/cocoaGithub/cocoaGithub.github.io/tree/2017/04/18/Masonry-source-code-learning/">Masonry source code learning</a>
+            <a href="/2017/04/19/ios-push-notification/">ios push &amp; notification</a>
           </li>
         
       </ul>
@@ -320,25 +329,25 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/cocoaGithub/cocoaGithub.github.io/tree/" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="/cocoaGithub/cocoaGithub.github.io/tree/archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
 
 
-<script src="/cocoaGithub/cocoaGithub.github.io/tree/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
 
   
-<script src="/cocoaGithub/cocoaGithub.github.io/tree/fancybox/jquery.fancybox.min.js"></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-<script src="/cocoaGithub/cocoaGithub.github.io/tree/js/script.js"></script>
+<script src="/js/script.js"></script>
 
 
 
