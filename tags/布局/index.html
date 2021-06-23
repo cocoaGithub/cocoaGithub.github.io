@@ -4,23 +4,15 @@
   <meta charset="utf-8">
   
   
-  <title>IOS view的frame和bounds区别 | Hexo</title>
+  <title>Tag: 布局 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="先看一下代码：      -(CGRect)frame&amp;#123;     return CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,self.frame.size.height); &amp;#125; -(CGRect)bounds&amp;#123;     return CGRectMake(0,0,se">
-<meta property="og:type" content="article">
-<meta property="og:title" content="IOS view的frame和bounds区别">
-<meta property="og:url" content="http://example.com/2017/01/23/frame-bounds/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/tags/%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="先看一下代码：      -(CGRect)frame&amp;#123;     return CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,self.frame.size.height); &amp;#125; -(CGRect)bounds&amp;#123;     return CGRectMake(0,0,se">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/frame&bounds.jpg">
-<meta property="og:image" content="http://example.com/img/frame&boundsDemo.jpg">
-<meta property="article:published_time" content="2017-01-23T11:12:15.000Z">
-<meta property="article:modified_time" content="2021-06-23T07:13:37.035Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="布局">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/frame&bounds.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -77,103 +69,77 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-frame-bounds" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/01/23/frame-bounds/" class="article-date">
-  <time class="dt-published" datetime="2017-01-23T11:12:15.000Z" itemprop="datePublished">2017-01-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IOS/">IOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      IOS view的frame和bounds区别
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/04/18/Masonry-source-code-learning/" class="archive-article-date">
+  <time class="dt-published" datetime="2017-04-18T06:33:25.000Z" itemprop="datePublished">Apr 18</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/18/Masonry-source-code-learning/">Masonry source code learning</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>先看一下代码：     </p>
-<pre><code>-(CGRect)frame&#123;
-    return CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,self.frame.size.height);
-&#125;
--(CGRect)bounds&#123;
-    return CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
-&#125;
-</code></pre>
-<p>bounds的原点是(0,0)点，就是View本身的坐标系统，默认都是0，0点，除非人为setbounds；<br>frame的原点是任意的，相对于父视图中的坐标位置。        </p>
-<span id="more"></span>
-
-<p>参考下图示意：<br><img src="/img/frame&bounds.jpg">      </p>
-<ol>
-<li>frame:该View在父View坐标系统中的位置和大小，参照点是父View的坐标系统；     </li>
-<li>bounds：该View在本地坐标系统中的位置和大小，参照点是本地坐标系统，即View自己的坐标系统，默认以0，0为起点；     </li>
-<li>center：该View的中心点在父View坐标系统中的位置，参照点是父View坐标系统。      </li>
-<li>通过修改View的bounds属性可以修改本地坐标系统的原点位置。 例： <pre><code>   [view setBounds:CGRectMake(-20, -20, 300, 300)];    
-   
-</code></pre>
-   则View坐标系的原点为（-20，-20）<br>   bounds参考自己坐标系，可以修改自己坐标系的原点位置，进而影响到“子view”的显示位置</li>
-</ol>
-<p>demo演示：       </p>
-<pre><code>UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 280, 250)];  
-[view1 setBounds:CGRectMake(-20, -20, 280, 250)];  
-view1.backgroundColor = [UIColor redColor];  
-[self.view addSubview:view1];//添加到self.view  
-NSLog(@&quot;view1 frame:%@========view1 bounds:%@&quot;,NSStringFromCGRect(view1.frame),NSStringFromCGRect(view1.bounds));  
-  
-UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];  
-view2.backgroundColor = [UIColor yellowColor];  
-[view1 addSubview:view2];//添加到view1上,[此时view1坐标系左上角起点为(-20,-20)]  
-NSLog(@&quot;view2 frame:%@========view2 bounds:%@&quot;,NSStringFromCGRect(view2.frame),NSStringFromCGRect(view2.bounds));     
- 
-</code></pre>
-<p>结果如图所示：<br><img src="/img/frame&boundsDemo.jpg">     </p>
-<p>为何（-20，-20）的偏移量，却可以让view2向右下角移动呢？<br>这是因为setBounds的作用是：强制将自己（view1）坐标系的左上角点，改为（-20，-20）。那么view1的原点（0，0），自然就向在右下方偏移（20，20）。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/01/23/frame-bounds/" data-id="ckq82ni5n0006t8st34bn47up" data-title="IOS view的frame和bounds区别" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li></ul>
-
-    </footer>
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/01/23/frame-bounds/" class="archive-article-date">
+  <time class="dt-published" datetime="2017-01-23T11:12:15.000Z" itemprop="datePublished">Jan 23</time>
+</a>
+      
   
-    <a href="/2017/01/23/%E5%B0%8F%E6%A3%AE%E6%9E%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          小森林
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/23/frame-bounds/">IOS view的frame和bounds区别</a>
+    </h1>
   
-  
-    <a href="/2017/01/23/NSLayoutConstraint/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">NSLayoutConstraint</div>
-    </a>
-  
-</nav>
 
-  
+    </header>
+  </div>
 </article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/01/23/NSLayoutConstraint/" class="archive-article-date">
+  <time class="dt-published" datetime="2017-01-23T06:48:54.000Z" itemprop="datePublished">Jan 23</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/23/NSLayoutConstraint/">NSLayoutConstraint</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
 
 </section>
