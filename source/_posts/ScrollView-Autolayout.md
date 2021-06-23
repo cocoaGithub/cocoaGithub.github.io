@@ -13,7 +13,7 @@ tags:
 <!-- more -->	
 
 <h3 id="header1">1. ScrollView可见区域和内容区域</h3>
-![alt ScrollView区域示意图](../images/scrollView_autolayout_1.png)
+![alt ScrollView区域示意图](../img/scrollview_autolayout_3.png)
 
 UIScrollView有自己的**frame**也就是我们在屏幕上能看到的区域（***可见区域***）。它还有一个**contentSize**的概念（***内容区域***）
 
