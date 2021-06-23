@@ -258,6 +258,133 @@
 
 
   
+    <article id="post-iOS-项目引入YogaKit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/01/05/iOS-%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5YogaKit/" class="article-date">
+  <time class="dt-published" datetime="2019-01-05T08:30:25.000Z" itemprop="datePublished">2019-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/01/05/iOS-%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5YogaKit/">iOS 项目引入YogaKit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="#header1">Flexbox基本概念</a><br><a href="#header2">Flexbox解决了什么？</a><br><a href="#header3">iOS基于flexbox的布局</a><br><a href="#header4">YogaKit</a><br>[Yoga : 使用跨平台布局引擎](#header41<br><a href="#header42">使用</a><br><a href="#header43">接入和使用中的问题</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebook/yoga/tree/master/YogaKit">YogaKit github</a></p>
+<h3 id="header1">Flexbox基本概念</h3>
+
+<p>FlexBox 是一种 UI 布局方式，并得到了所有浏览器的支持。FlexBox 首先是基于 盒装状型 的，Flexible 意味着弹性，使其能适应不同屏幕，补充盒状模型的灵活性。</p>
+<p>下图为Flexbox模型图：</p>
+<p>FlexBox 把每个视图，都看作一个矩形盒子，拥有内外边距，沿着主轴方向排列，并且，同级的视图之间没有依赖。</p>
+<p>和 Auto Layout 类似，FlexBox 采用了描述性的语言去进行布局，而不像 Frame 直接用绝对值坐标进行布局。</p>
+<blockquote>
+<p>弹性布局的主要思想是让 Flex Container 有能力来改变 Flex Item 的宽度和高度，以填满可用空间（主要是为了容纳所有类型的显示设备和屏幕尺寸）的能力。</p>
+</blockquote>
+<p>最重要的是, FlexBox 布局与方向无关，常规的布局设计缺乏灵活性，无法支持大型和复杂的应用程序（特别是涉及到方向转变，缩放、拉伸和收缩等）。</p>
+<h3 id="header1">Flexbox解决了什么？</h3>
+
+<blockquote>
+<ul>
+<li>方向性 （传统布局方向是从左到右，从上至下）</li>
+<li>弹性伸缩 （传统尺寸定义是通过像素等来精确定义）  </li>
+<li>元素对齐（可以做到插拔）</li>
+</ul>
+</blockquote>
+<p>从上述几点看来，它似乎完美的解决了iOS原生布局开发效率低的问题，但它会增加页面的嵌套层级关系，在硬件性能饱和的情况下用空间换取开发效率。</p>
+<h3 id="header3">iOS基于flexbox的布局</h3>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/facebook/yoga/tree/master/YogaKit">yogaKit</a>、<a target="_blank" rel="noopener" href="https://github.com/carlSQ/FlexBoxLayout">FlexBoxLayout</a></p>
+<h3 id="header4">YogaKit</h3>
+
+<h4 id="header41">Yoga : 使用跨平台布局引擎<h4>
+
+<p>Yoga 是一个基于 Flexbox 的跨平台布局引擎，能使布局工作更容易。你可以使用 Yoga 作为一个通用的布局系统，来代替 iOS 上的 Auto Layout 或 web 上的 Cascading Style Sheets (CSS)。</p>
+<p>最初是 Facebook 在 2014 年推出的一个 CSS 布局的开源库，2016 年改版并更名为 Yoga。Yoga 支持多个平台，包括 Java、C#、C 和 Swift。</p>
+<p>库开发者可以集成 Yoga 到他们的布局系统，就如 Facebook 已经集成进了它的两个开源项目：React Native 和 Litho。然而，Yoga 也是一个 iOS 开发者可以直接用来布局视图的框架。</p>
+<p>它有以下特点:</p>
+<ol>
+<li><p>兼容Flexbox布局,并增加了特有属性如RTL(自右向左布局)以及AspectRatio(宽高比).</p>
+</li>
+<li><p>支持Java, C#,Objective-C,C四种语言.</p>
+</li>
+<li><p>基于C语言的编写,性能更好.</p>
+</li>
+<li><p>支持流行框架如React Native.</p>
+</li>
+</ol>
+<p>Yoga在iOS端被封装为一个叫做YogaKit的库,通过为UIView的类别增加YGLayout类型的yoga属性来支持UIKit的Yoga布局.</p>
+<p>YogaKit是用于iOS开发的，它是基于 Flexbox，它让布局变得更简单。可以用它替代 iOS 的自动布局和 web 的 CSS，也可以将它当成一种通用的布局系统使用。</p>
+<h4 id="header42">使用<h4>
+
+<ol>
+<li><p>通过pod引入</p>
+<ul>
+<li>YogaKit 是Swift库，必须动态链接，需要在Podfile种设置 use_frameworks!</li>
+</ul>
+</li>
+<li><p>YogaKit，布局配置是交由 YGLayout 对象来完成</p>
+<p> YogaKit 曝露 YGLayout 作为 UIView 上的一个 Category。这个 Category 添加 configureLayout(block:) 方法到 UIView。将 YGLayout 参数传进闭合块里，并使用这些信息来配置视图的布局属性。</p>
+<p> 通过使用所需的 Yoga 属性配置每个参与的视图来构建你的布局。一旦完成，你在根视图的 YGLayout 上调用 applyLayout(preservingOrigin:)。这会计算并应用布局到根视图和子视图。</p>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;YogaKit/UIView+Yoga.h&gt;</span></span></span><br><span class="line">​</span><br><span class="line"> UIView *container = [[UIView alloc] init];</span><br><span class="line"> [self.contentView addSubview:container];</span><br><span class="line">        </span><br><span class="line"> UIImageView *redView = [UIImageView <span class="keyword">new</span>];</span><br><span class="line"> redView.backgroundColor = [UIColor redColor];</span><br><span class="line"> [container addSubview:redView];</span><br><span class="line">        </span><br><span class="line"> [self.contentView configureLayoutWithBlock:^(YGLayout * _Nonnull layout) &#123;</span><br><span class="line">    layout.isEnabled = YES;</span><br><span class="line">    layout.height = YGPointValue(<span class="number">88</span>);</span><br><span class="line">    layout.justifyContent = YGJustifySpaceBetween;</span><br><span class="line">    layout.alignItems = YGAlignStretch;</span><br><span class="line">    layout.margin = YGPointValue(<span class="number">0</span>);</span><br><span class="line">    layout.flexDirection = YGFlexDirectionColumn;</span><br><span class="line">            </span><br><span class="line"> &#125;];</span><br><span class="line">        </span><br><span class="line">        [container configureLayoutWithBlock:^(YGLayout * _Nonnull layout) &#123;</span><br><span class="line">            layout.isEnabled = YES;</span><br><span class="line">            layout.margin = YGPointValue(<span class="number">0</span>);</span><br><span class="line">            layout.justifyContent = YGJustifyFlexStart;</span><br><span class="line">            layout.alignItems = YGAlignStretch;</span><br><span class="line">            layout.flexGrow = <span class="number">1</span>;</span><br><span class="line">            layout.flexDirection = YGFlexDirectionRow;</span><br><span class="line">        &#125;];</span><br><span class="line">        </span><br><span class="line">        [redView configureLayoutWithBlock:^(YGLayout * _Nonnull layout) &#123;</span><br><span class="line">            layout.isEnabled = YES;</span><br><span class="line">            layout.width = YGPointValue(<span class="number">100</span>);</span><br><span class="line">            layout.marginTop = YGPointValue(<span class="number">15</span>);</span><br><span class="line">            layout.marginLeft = YGPointValue(<span class="number">15</span>);</span><br><span class="line">        &#125;];</span><br><span class="line">        </span><br><span class="line">        [self.contentView.yoga applyLayoutPreservingOrigin:NO];</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<h4 id="header43">接入和使用中的问题</h4>
+
+<ol>
+<li><p>官方维护差强人意: github issue解决和document更新不及时.</p>
+</li>
+<li><p>pod导入有问题</p>
+</li>
+<li><p>The target “YogaKit” contains source code developed with Swift 2.x. Xcode 9 does not support building or migrating Swift 2.x targets.</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>View层级过深</p>
+</li>
+<li><p>UITableViewCell高度不能自适应</p>
+</li>
+</ol>
+<p><em><strong>link:</strong></em></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c88fa8df0446">iOS 如何使用facebook开源的YogaKit(一)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/684e99dad419">iOS 如何使用facebook开源的YogaKit(二)</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903491165487118">Yoga 教程</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">flexbox 语法</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903541295808525">iOS上的flexbox布局</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903581015867406">iOS Flexbox 布局优化</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/01/05/iOS-%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5YogaKit/" data-id="ckq99aljb0000nosta38n0qgo" data-title="iOS 项目引入YogaKit" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-flex%E5%B8%83%E5%B1%80/" rel="tag">iOS flex布局</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-css-custom-checkbox" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2017/09/12/css-custom-checkbox/" class="article-date">
@@ -547,63 +674,6 @@
 
 
   
-    <article id="post-frame-bounds" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2017/01/23/frame-bounds/" class="article-date">
-  <time class="dt-published" datetime="2017-01-23T11:12:15.000Z" itemprop="datePublished">2017-01-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IOS/">IOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2017/01/23/frame-bounds/">IOS view的frame和bounds区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>先看一下代码：     </p>
-<pre><code>-(CGRect)frame&#123;
-    return CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,self.frame.size.height);
-&#125;
--(CGRect)bounds&#123;
-    return CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
-&#125;
-</code></pre>
-<p>bounds的原点是(0,0)点，就是View本身的坐标系统，默认都是0，0点，除非人为setbounds；<br>frame的原点是任意的，相对于父视图中的坐标位置。        </p>
-        
-          <p class="article-more-link">
-            <a href="/2017/01/23/frame-bounds/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2017/01/23/frame-bounds/" data-id="ckq82ni5n0006t8st34bn47up" data-title="IOS view的frame和bounds区别" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -629,7 +699,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/autolayout/" rel="tag">autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E7%9F%A5/" rel="tag">通知</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/autolayout/" rel="tag">autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-flex%E5%B8%83%E5%B1%80/" rel="tag">iOS flex布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E7%9F%A5/" rel="tag">通知</a></li></ul>
     </div>
   </div>
 
@@ -639,7 +709,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/autolayout/" style="font-size: 10px;">autolayout</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 20px;">布局</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E9%80%9A%E7%9F%A5/" style="font-size: 10px;">通知</a>
+      <a href="/tags/autolayout/" style="font-size: 10px;">autolayout</a> <a href="/tags/iOS-flex%E5%B8%83%E5%B1%80/" style="font-size: 10px;">iOS flex布局</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 20px;">布局</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E9%80%9A%E7%9F%A5/" style="font-size: 10px;">通知</a>
     </div>
   </div>
 
@@ -648,7 +718,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
     </div>
   </div>
 
@@ -673,11 +743,11 @@
           </li>
         
           <li>
-            <a href="/2017/09/12/css-custom-checkbox/">css 定制 checkbox</a>
+            <a href="/2019/01/05/iOS-%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5YogaKit/">iOS 项目引入YogaKit</a>
           </li>
         
           <li>
-            <a href="/2017/04/19/ios-push-notification/">ios push &amp; notification</a>
+            <a href="/2017/09/12/css-custom-checkbox/">css 定制 checkbox</a>
           </li>
         
       </ul>
