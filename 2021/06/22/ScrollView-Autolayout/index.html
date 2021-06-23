@@ -13,13 +13,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ScrollView可见区域和内容区域   ScrollView中添加子视图有以下两种方式   为UIScrollView中的子视图和UIScrollView外的视图添加一个固定位置的约束   人为地给UIScrollView添加一个“内容区域”的视图     进阶：scrollView+autolayout+子视图自动撑高">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_2.png">
 <meta property="article:published_time" content="2021-06-22T08:11:19.000Z">
-<meta property="article:modified_time" content="2021-06-23T03:59:06.358Z">
+<meta property="article:modified_time" content="2021-06-23T06:18:32.506Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -110,8 +111,8 @@
 <span id="more"></span>    
 
 <h3 id="header1">1. ScrollView可见区域和内容区域</h3>
-![ScrollView区域示意图](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png)
 
+<p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png" alt="ScrollView区域示意图"></p>
 <p>UIScrollView有自己的<strong>frame</strong>也就是我们在屏幕上能看到的区域（<em><strong>可见区域</strong></em>）。它还有一个<strong>contentSize</strong>的概念（<em><strong>内容区域</strong></em>）</p>
 <p>那么当我们在UIScrollView中的子视图中添加约束的时候，我们添加的约束是针对UIScrollView本身的可见区域呢，还是其内容区域呢？</p>
 <p>以下是官方的解释（<a target="_blank" rel="noopener" href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html#//apple_ref/doc/uid/TP40010853-CH24-SW1%EF%BC%89%EF%BC%9A">https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html#//apple_ref/doc/uid/TP40010853-CH24-SW1）：</a></p>
@@ -187,7 +188,8 @@
 </ol>
 <h3 id="header3">3. 进阶：scrollView+autolayout+子视图自动撑高</h3>
 
-<p>上面介绍的常规用法中，ScrollView的可见区域大小是固定的，根据内容区域相对可见区域的大小，决定是否需要滚动及滚动方向；然而在实际使用中我们会遇到更复杂的情况<br><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_1.png" alt="内容较少时"><br><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_2.png" alt="内容超出时滑动"></p>
+<p>上面介绍的常规用法中，ScrollView的可见区域大小是固定的，根据内容区域相对可见区域的大小，决定是否需要滚动及滚动方向；然而在实际使用中我们会遇到更复杂的情况</p>
+<p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_1.png" alt="内容较少时">   <img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_2.png" alt="内容超出时滑动"></p>
 <p>例：scrollView中添加一个Label，可见区域有最大高度 <em><strong>MAX_HEIGHT</strong></em> ，要求当Label内容高度不超过 <em><strong>MAX_HEIGHT</strong></em> ，ScrollView可见区域高度等于label内容高度，不可滚动；当label高度超过 <em><strong>MAX_HEIGHT</strong></em> ，ScrollView可见区域高度固定为 <em><strong>MAX_HEIGHT</strong></em> ，label支持滚动。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    UIScrollView *msgScrollView = [[UIScrollView alloc] init];</span><br><span class="line">    [self addSubview:msgScrollView];</span><br><span class="line">  </span><br><span class="line">    UILabel *message = [UILabel <span class="keyword">new</span>];</span><br><span class="line">    [msgScrollView addSubview:message];</span><br><span class="line">    </span><br><span class="line">    [msgScrollView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make.top.<span class="built_in">equalTo</span>(self).<span class="built_in">offset</span>(<span class="number">10</span>);</span><br><span class="line">        make.left.<span class="built_in">equalTo</span>(@<span class="number">20</span>);</span><br><span class="line">        make.right.<span class="built_in">equalTo</span>(@<span class="number">-20</span>);</span><br><span class="line">        make.bottom.<span class="built_in">equalTo</span>(@<span class="number">-72</span>);</span><br><span class="line">      <span class="comment">// scrollView 设置最大高度限制</span></span><br><span class="line">        make.height.<span class="built_in">mas_lessThanOrEqualTo</span>(<span class="number">140</span>).<span class="built_in">priorityHigh</span>();</span><br><span class="line">      <span class="comment">// 当内容过少时，保障UIScrollView可以被Label撑开，low 是为了避免约束冲突</span></span><br><span class="line">        make.height.<span class="built_in">equalTo</span>(message).<span class="built_in">priorityLow</span>();</span><br><span class="line">    &#125;];</span><br><span class="line">​</span><br><span class="line">    [message mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make.left.top.right.bottom.<span class="built_in">equalTo</span>(msgScrollView);</span><br><span class="line">        make.width.<span class="built_in">equalTo</span>(msgScrollView);</span><br><span class="line">      <span class="comment">// 保障可以正确的计算contentSize</span></span><br><span class="line">        make.height.<span class="built_in">greaterThanOrEqualTo</span>(msgScrollView);</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
 
