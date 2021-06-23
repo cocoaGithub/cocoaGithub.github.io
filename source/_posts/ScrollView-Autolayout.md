@@ -13,7 +13,8 @@ tags:
 <!-- more -->	
 
 <h3 id="header1">1. ScrollView可见区域和内容区域</h3>
-![alt ScrollView区域示意图](../img/scrollview_autolayout_3.png)
+
+![ScrollView区域示意图](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_3.png)
 
 UIScrollView有自己的**frame**也就是我们在屏幕上能看到的区域（***可见区域***）。它还有一个**contentSize**的概念（***内容区域***）
 
@@ -143,7 +144,10 @@ UIScrollView有自己的**frame**也就是我们在屏幕上能看到的区域�
 
 <h3 id="header3">3. 进阶：scrollView+autolayout+子视图自动撑高</h3>
 
-上面介绍的常规用法中，ScrollView的可见区域大小是固定的，根据内容区域相对可见区域的大小，决定是否需要滚动及滚动方向；然而在实际使用中我们会遇到更复杂的情况，
+上面介绍的常规用法中，ScrollView的可见区域大小是固定的，根据内容区域相对可见区域的大小，决定是否需要滚动及滚动方向；然而在实际使用中我们会遇到更复杂的情况
+
+![内容较少时](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_1.png)   ![内容超出时滑动](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/scrollview_autolayout_2.png)
+
 
 例：scrollView中添加一个Label，可见区域有最大高度 ***MAX_HEIGHT*** ，要求当Label内容高度不超过 ***MAX_HEIGHT*** ，ScrollView可见区域高度等于label内容高度，不可滚动；当label高度超过 ***MAX_HEIGHT*** ，ScrollView可见区域高度固定为 ***MAX_HEIGHT*** ，label支持滚动。
 
