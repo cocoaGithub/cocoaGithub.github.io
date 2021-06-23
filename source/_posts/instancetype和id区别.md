@@ -2,9 +2,8 @@
 title: instancetype和id区别
 date: 2017-02-06 14:13:19
 tags:
-categories: iOS
+categories: IOS
 ---
-# id和instancetype区别    
 
 ### 概述   
 instancetype是clang3.5开始提供的一个关键字，与id一样表示未知类型的Objective-C对象。     

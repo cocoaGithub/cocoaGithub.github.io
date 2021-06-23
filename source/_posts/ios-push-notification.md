@@ -2,10 +2,8 @@
 title: ios push & notification
 date: 2017-04-19 15:26:55
 tags:
-categories: iOS
+categories: IOS
 ---
-
-# push & notification
 
 摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。
 <!-- more -->  
