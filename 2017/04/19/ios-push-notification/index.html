@@ -6,15 +6,15 @@
   
   <title>ios push &amp; notification | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="push &amp; notification摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。">
+  <meta name="description" content="摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ios push &amp; notification">
 <meta property="og:url" content="http://example.com/2017/04/19/ios-push-notification/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="push &amp; notification摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。">
+<meta property="og:description" content="摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2017-04-19T07:26:55.000Z">
-<meta property="article:modified_time" content="2021-06-23T06:37:30.582Z">
+<meta property="article:modified_time" content="2021-06-23T07:05:08.822Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="push-amp-notification"><a href="#push-amp-notification" class="headerlink" title="push &amp; notification"></a>push &amp; notification</h1><p>摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。</p>
+        <p>摘要： 本文主要介绍iOS push过来的信息的处理，即对notification的响应。同时针对iOS 8、iOS 10不同系统版本，local和remote两种通知类型实际如何处理。并且依据两种通知类型，简单介绍本地推送和apns推送。</p>
 <span id="more"></span>  
 
 <h2 id="一、通知权限申请、注册"><a href="#一、通知权限申请、注册" class="headerlink" title="一、通知权限申请、注册"></a>一、通知权限申请、注册</h2><h3 id="1-register-RemoteNotifications"><a href="#1-register-RemoteNotifications" class="headerlink" title="1. register RemoteNotifications"></a>1. register RemoteNotifications</h3><pre><code>[[UIApplication sharedApplication] registerForRemoteNotifications]; 
