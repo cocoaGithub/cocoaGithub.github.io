@@ -17,6 +17,8 @@ tags:
 [触发显示更新：](#header232)
 [总结](#header4)
 
+<!-- more -->
+
 <h3 id="header1">一、iOS runloop和update cycle</h3>
 
 ![runloop](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_layout_1.png)

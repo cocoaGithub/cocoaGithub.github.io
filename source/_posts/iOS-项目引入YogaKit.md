@@ -20,6 +20,7 @@ categories: IOS
 FlexBox 是一种 UI 布局方式，并得到了所有浏览器的支持。FlexBox 首先是基于 盒装状型 的，Flexible 意味着弹性，使其能适应不同屏幕，补充盒状模型的灵活性。
 
 下图为Flexbox模型图：
+![Flexbox模型图](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/yogakit_1.jpeg)
 
 FlexBox 把每个视图，都看作一个矩形盒子，拥有内外边距，沿着主轴方向排列，并且，同级的视图之间没有依赖。
 
@@ -123,7 +124,7 @@ YogaKit是用于iOS开发的，它是基于 Flexbox，它让布局变得更简�
 2. pod导入有问题
 
 3. The target “YogaKit” contains source code developed with Swift 2.x. Xcode 9 does not support building or migrating Swift 2.x targets.
-
+![Xcode报错](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/yogakit_2.png)
 
 4. View层级过深
 
