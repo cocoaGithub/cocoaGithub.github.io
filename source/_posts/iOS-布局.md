@@ -1,7 +1,8 @@
 ---
 title: iOS 布局
 date: 2018-09-03 19:05:17
-tags:
+tags: 布局
+categories: IOS
 ---
 
 [一、iOS runloop和update cycle](#header1)  
