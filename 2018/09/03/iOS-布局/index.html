@@ -6,18 +6,18 @@
   
   <title>iOS 布局 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="一、iOS runloop和update cycle二、View的更新1.约束约束更新方法：触发约束更新：2.布局布局更新方法：触发布局更新：3.显示显示更新方法：触发显示更新：总结 一、iOS runloop和update cycle   ios应用的主runloop负责处理所有的用户输入事件，并触发相应的响应。 所有的用户交互都会被加入到一个事件队列中。下图中的 Application obj">
+  <meta name="description" content="一、iOS runloop和update cycle二、View的更新1.约束约束更新方法：触发约束更新：2.布局布局更新方法：触发布局更新：3.显示显示更新方法：触发显示更新：总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 布局">
 <meta property="og:url" content="http://example.com/2018/09/03/iOS-%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、iOS runloop和update cycle二、View的更新1.约束约束更新方法：触发约束更新：2.布局布局更新方法：触发布局更新：3.显示显示更新方法：触发显示更新：总结 一、iOS runloop和update cycle   ios应用的主runloop负责处理所有的用户输入事件，并触发相应的响应。 所有的用户交互都会被加入到一个事件队列中。下图中的 Application obj">
+<meta property="og:description" content="一、iOS runloop和update cycle二、View的更新1.约束约束更新方法：触发约束更新：2.布局布局更新方法：触发布局更新：3.显示显示更新方法：触发显示更新：总结">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_layout_1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_layout_2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_layout_2.png">
 <meta property="article:published_time" content="2018-09-03T11:05:17.000Z">
-<meta property="article:modified_time" content="2021-06-23T12:50:44.422Z">
+<meta property="article:modified_time" content="2021-06-23T12:53:33.077Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_layout_1.png">
@@ -100,6 +100,8 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p><a href="#header1">一、iOS runloop和update cycle</a><br><a href="#header2">二、View的更新</a><br><a href="#header21">1.约束</a><br><a href="#header211">约束更新方法：</a><br><a href="#header212">触发约束更新：</a><br><a href="#header22">2.布局</a><br><a href="#header221">布局更新方法：</a><br><a href="#header222">触发布局更新：</a><br><a href="#header23">3.显示</a><br><a href="#header231">显示更新方法：</a><br><a href="#header232">触发显示更新：</a><br><a href="#header4">总结</a></p>
+<span id="more"></span>
+
 <h3 id="header1">一、iOS runloop和update cycle</h3>
 
 <p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_layout_1.png" alt="runloop"></p>
