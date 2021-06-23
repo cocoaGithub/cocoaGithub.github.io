@@ -2,7 +2,7 @@
 title: instancetype和id区别
 date: 2017-02-06 14:13:19
 tags:
-categories: IOS
+categories: iOS
 ---
 # id和instancetype区别    
 

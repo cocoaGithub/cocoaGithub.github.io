@@ -2,7 +2,7 @@
 title: UIView的alpha、hidden和opaque属性
 date: 2017-02-08 15:17:07
 tags:
-categories: IOS
+categories: iOS
 ---
 
 # UIView的alpha、hidden和opaque属性   

@@ -2,7 +2,7 @@
 title: ios push & notification
 date: 2017-04-19 15:26:55
 tags:
-categories:
+categories: iOS
 ---
 
 # push & notification

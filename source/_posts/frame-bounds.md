@@ -2,7 +2,7 @@
 title: IOS view的frame和bounds区别
 date: 2017-01-23 19:12:15
 tags:  
-categories: IOS
+categories: iOS
 ---
       
 

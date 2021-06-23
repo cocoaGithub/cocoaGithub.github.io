@@ -2,7 +2,7 @@
 title: NSLayoutConstraint
 date: 2017-01-23 14:48:54
 tags:  
-categories: IOS
+categories: iOS
 ---
 ## NSLayoutConstraint     
 
