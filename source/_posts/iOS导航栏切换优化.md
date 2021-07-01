@@ -15,6 +15,8 @@ categories: IOS
 
 **苹果的UINavigationBar官方文档中有一段对三者的关系的描述非常关键：**
 
+<!-- more -->
+
 
 > 当视图控制器在导航过程中，导航控制利用视图控制器提供的navigationItem的属性作为导航控制器的导航栏的model对象。navigationItem默认使用视图控制器的title属性，但是我们也可以通过自定义navigationItem的属性达到完全控制导航栏内容的效果。
 
