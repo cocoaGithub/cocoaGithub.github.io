@@ -71,117 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-iOS导航栏切换优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2021-07-01T11:34:24.000Z" itemprop="datePublished">2021-07-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IOS/">IOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/">iOS导航栏切换优化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="一、导航栏相关概念：导航栏组件的构成就是一个类似-MVC-的结构"><a href="#一、导航栏相关概念：导航栏组件的构成就是一个类似-MVC-的结构" class="headerlink" title="一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构"></a>一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构</h3><p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_1.png" alt="ios_navbar"></p>
-<ol>
-<li><p>我们可以将 UINavigationController 看做是 C，UINavigationBar 看做是 V，而 UIViewController 和 UINavigationItem 组成的 Stack 可以看做是 M。</p>
-</li>
-<li><p>UINavigationController 通过驱动 Stack 中的 UIViewController 的变化来实现 View 层级的变化，也就是 UINavigationBar 的改变。而 UINavigationBar 样式的数据就存储在 UIViewController 的 UINavigationItem 中。</p>
-</li>
-</ol>
-<p><strong>苹果的UINavigationBar官方文档中有一段对三者的关系的描述非常关键：</strong></p>
-        
-          <p class="article-more-link">
-            <a href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" data-id="ckqkvdft80000xvst5tpp7nis" data-title="iOS导航栏切换优化" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-ScrollView-Autolayout" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/06/22/ScrollView-Autolayout/" class="article-date">
-  <time class="dt-published" datetime="2021-06-22T08:11:19.000Z" itemprop="datePublished">2021-06-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IOS/">IOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><a href="#header1">ScrollView可见区域和内容区域</a>  </li>
-<li><a href="#header2">ScrollView中添加子视图有以下两种方式</a>  <ul>
-<li><a href="#header21">为UIScrollView中的子视图和UIScrollView外的视图添加一个固定位置的约束</a>  </li>
-<li><a href="#header22">人为地给UIScrollView添加一个“内容区域”的视图</a>  </li>
-</ul>
-</li>
-<li><a href="#header3">进阶：scrollView+autolayout+子视图自动撑高</a></li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2021/06/22/ScrollView-Autolayout/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/22/ScrollView-Autolayout/" data-id="ckq82ni5i0002t8st3c78fx4b" data-title="ScrollView + Autolayout" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autolayout/" rel="tag">autolayout</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-GCD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/06/10/GCD/" class="article-date">
@@ -303,6 +192,117 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-iOS导航栏切换优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2020-05-17T11:34:24.000Z" itemprop="datePublished">2020-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/">iOS导航栏切换优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一、导航栏相关概念：导航栏组件的构成就是一个类似-MVC-的结构"><a href="#一、导航栏相关概念：导航栏组件的构成就是一个类似-MVC-的结构" class="headerlink" title="一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构"></a>一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构</h3><p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_1.png" alt="ios_navbar"></p>
+<ol>
+<li><p>我们可以将 UINavigationController 看做是 C，UINavigationBar 看做是 V，而 UIViewController 和 UINavigationItem 组成的 Stack 可以看做是 M。</p>
+</li>
+<li><p>UINavigationController 通过驱动 Stack 中的 UIViewController 的变化来实现 View 层级的变化，也就是 UINavigationBar 的改变。而 UINavigationBar 样式的数据就存储在 UIViewController 的 UINavigationItem 中。</p>
+</li>
+</ol>
+<p><strong>苹果的UINavigationBar官方文档中有一段对三者的关系的描述非常关键：</strong></p>
+        
+          <p class="article-more-link">
+            <a href="/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" data-id="ckqkvdft80000xvst5tpp7nis" data-title="iOS导航栏切换优化" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ScrollView-Autolayout" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/09/16/ScrollView-Autolayout/" class="article-date">
+  <time class="dt-published" datetime="2019-09-16T08:11:19.000Z" itemprop="datePublished">2019-09-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IOS/">IOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/09/16/ScrollView-Autolayout/">ScrollView + Autolayout</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><a href="#header1">ScrollView可见区域和内容区域</a>  </li>
+<li><a href="#header2">ScrollView中添加子视图有以下两种方式</a>  <ul>
+<li><a href="#header21">为UIScrollView中的子视图和UIScrollView外的视图添加一个固定位置的约束</a>  </li>
+<li><a href="#header22">人为地给UIScrollView添加一个“内容区域”的视图</a>  </li>
+</ul>
+</li>
+<li><a href="#header3">进阶：scrollView+autolayout+子视图自动撑高</a></li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/16/ScrollView-Autolayout/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/09/16/ScrollView-Autolayout/" data-id="ckq82ni5i0002t8st3c78fx4b" data-title="ScrollView + Autolayout" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/autolayout/" rel="tag">autolayout</a></li></ul>
 
     </footer>
   </div>
@@ -646,7 +646,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
     </div>
   </div>
 
@@ -659,19 +659,19 @@
       <ul>
         
           <li>
-            <a href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/">iOS导航栏切换优化</a>
-          </li>
-        
-          <li>
-            <a href="/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
-          </li>
-        
-          <li>
             <a href="/2021/06/10/GCD/">GCD疑问</a>
           </li>
         
           <li>
             <a href="/2021/04/10/OC%E5%8D%8F%E8%AE%AE%E4%B8%AD%E5%A3%B0%E6%98%8E%E5%B1%9E%E6%80%A7/">OC协议中声明属性</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/">iOS导航栏切换优化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/16/ScrollView-Autolayout/">ScrollView + Autolayout</a>
           </li>
         
           <li>

@@ -9,7 +9,7 @@
   <meta name="description" content="一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构  我们可以将 UINavigationController 看做是 C，UINavigationBar 看做是 V，而 UIViewController 和 UINavigationItem 组成的 Stack 可以看做是 M。  UINavigationController 通过驱动 Stack 中的 UIViewControll">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS导航栏切换优化">
-<meta property="og:url" content="http://example.com/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:url" content="http://example.com/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构  我们可以将 UINavigationController 看做是 C，UINavigationBar 看做是 V，而 UIViewController 和 UINavigationItem 组成的 Stack 可以看做是 M。  UINavigationController 通过驱动 Stack 中的 UIViewControll">
 <meta property="og:locale" content="en_US">
@@ -18,8 +18,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_6.png">
-<meta property="article:published_time" content="2021-07-01T11:34:24.000Z">
-<meta property="article:modified_time" content="2021-07-01T12:19:13.527Z">
+<meta property="article:published_time" content="2020-05-17T11:34:24.000Z">
+<meta property="article:modified_time" content="2021-07-01T12:22:42.767Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_1.png">
@@ -81,8 +81,8 @@
       <div class="outer">
         <section id="main"><article id="post-iOS导航栏切换优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2021-07-01T11:34:24.000Z" itemprop="datePublished">2021-07-01</time>
+    <a href="/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2020-05-17T11:34:24.000Z" itemprop="datePublished">2020-05-17</time>
 </a>
     
   <div class="article-category">
@@ -171,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" data-id="ckqkvdft80000xvst5tpp7nis" data-title="iOS导航栏切换优化" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/" data-id="ckqkvdft80000xvst5tpp7nis" data-title="iOS导航栏切换优化" class="article-share-link">Share</a>
       
       
       
@@ -181,8 +181,17 @@
     
 <nav id="article-nav">
   
+    <a href="/2021/04/10/OC%E5%8D%8F%E8%AE%AE%E4%B8%AD%E5%A3%B0%E6%98%8E%E5%B1%9E%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OC协议中声明属性
+        
+      </div>
+    </a>
   
-    <a href="/2021/06/22/ScrollView-Autolayout/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2019/09/16/ScrollView-Autolayout/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">ScrollView + Autolayout</div>
     </a>
@@ -230,7 +239,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
     </div>
   </div>
 
@@ -243,19 +252,19 @@
       <ul>
         
           <li>
-            <a href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/">iOS导航栏切换优化</a>
-          </li>
-        
-          <li>
-            <a href="/2021/06/22/ScrollView-Autolayout/">ScrollView + Autolayout</a>
-          </li>
-        
-          <li>
             <a href="/2021/06/10/GCD/">GCD疑问</a>
           </li>
         
           <li>
             <a href="/2021/04/10/OC%E5%8D%8F%E8%AE%AE%E4%B8%AD%E5%A3%B0%E6%98%8E%E5%B1%9E%E6%80%A7/">OC协议中声明属性</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/17/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/">iOS导航栏切换优化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/16/ScrollView-Autolayout/">ScrollView + Autolayout</a>
           </li>
         
           <li>
