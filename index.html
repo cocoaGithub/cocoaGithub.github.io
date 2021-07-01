@@ -105,58 +105,11 @@
 </li>
 </ol>
 <p><strong>苹果的UINavigationBar官方文档中有一段对三者的关系的描述非常关键：</strong></p>
-<blockquote>
-<p>当视图控制器在导航过程中，导航控制利用视图控制器提供的navigationItem的属性作为导航控制器的导航栏的model对象。navigationItem默认使用视图控制器的title属性，但是我们也可以通过自定义navigationItem的属性达到完全控制导航栏内容的效果。</p>
-</blockquote>
-<p><strong>三者的关系：</strong></p>
-<ol>
-<li><p>每一个导航控制器都会自动生成一个与之对应的导航栏（UINavigationBar）对象；</p>
-</li>
-<li><p>每个 UIViewController 都有一个属于自己的 UINavigationItem，也就是说它们是一一对应的；当一个新的ViewController加入到导航控制器时，导航栏使用ViewController提供的navigationItem对象作为导航栏的model对象来渲染导航栏；</p>
-</li>
-<li><p>导航栏会保存导航控制器栈内最上层的两个ViewController的navigationItem对象;</p>
-</li>
-<li><p>ViewController从导航控制器栈移除时，navigationItem会同时从navigationBar的视图栈内移除。</p>
-</li>
-</ol>
-<h3 id="二、导航栏组件的生命周期"><a href="#二、导航栏组件的生命周期" class="headerlink" title="二、导航栏组件的生命周期"></a>二、导航栏组件的生命周期</h3><h4 id="1-push：ViewControllerA-—-gt-viewControllerB"><a href="#1-push：ViewControllerA-—-gt-viewControllerB" class="headerlink" title="1.push：ViewControllerA —&gt;   viewControllerB"></a>1.push：ViewControllerA —&gt;   viewControllerB</h4><p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_2.png" alt="push"></p>
-<h4 id="2-pop：ViewControllerB—-gt-viewControllerA"><a href="#2-pop：ViewControllerB—-gt-viewControllerA" class="headerlink" title="2. pop：ViewControllerB—&gt; viewControllerA"></a>2. pop：ViewControllerB—&gt; viewControllerA</h4><p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_3.png" alt="pop"></p>
-<p>三、导航栏隐藏和显示<br>导航栏里的 Stack 中，每个 ViewController 都可以永久的影响导航栏样式，这种全局性的变化要求我们在实际开发中必须坚持“谁修改，谁复原”的原则，否则就会造成导航栏状态的混乱。</p>
-<h4 id="1-根据上面介绍的导航栏状态变化和VC的声明周期，在VC的viewWillAppear、viewWillDisappear分别进行导航栏的修改和恢复。"><a href="#1-根据上面介绍的导航栏状态变化和VC的声明周期，在VC的viewWillAppear、viewWillDisappear分别进行导航栏的修改和恢复。" class="headerlink" title="1.根据上面介绍的导航栏状态变化和VC的声明周期，在VC的viewWillAppear、viewWillDisappear分别进行导航栏的修改和恢复。"></a>1.根据上面介绍的导航栏状态变化和VC的声明周期，在VC的viewWillAppear、viewWillDisappear分别进行导航栏的修改和恢复。</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    [self.navigationController setNavigationBarHidden:YES animated:animated];</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillDisappear:animated];</span><br><span class="line">    [self.navigationController setNavigationBarHidden:NO animated:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>​<br>问题：</p>
-<ol>
-<li><p>需要在viewWillAppear和viewWillDisappear控制导航栏的地方越来越多，不便于管理和维护</p>
-</li>
-<li><p>容易出现人为疏忽，导致导航栏未按预期展现</p>
-</li>
-</ol>
-<h4 id="2-hook-VC的生命周期节点viewWillAppear、viewWillDisappear集中处理"><a href="#2-hook-VC的生命周期节点viewWillAppear、viewWillDisappear集中处理" class="headerlink" title="2. hook VC的生命周期节点viewWillAppear、viewWillDisappear集中处理"></a>2. hook VC的生命周期节点viewWillAppear、viewWillDisappear集中处理</h4><p>2.1 基于OC的category功能，导航栏隐藏状态通过扩展属性统⼀注册管理</p>
-<p>2.2 hook⻚⾯的⽣命周期节点集中处理导航栏隐藏操作</p>
-<p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_5.png" alt="页面生命周期"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 具体的一个VC</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">   [super viewDidLoad];</span><br><span class="line">    self.cctest_navigationBarHidden = YES;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line"><span class="comment">// UIViewController + CCtestNavbar(方法交换)</span></span><br><span class="line">- (<span class="keyword">void</span>)cctest_viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    [self viewWillAppear:animated];</span><br><span class="line">    [self.navigationController setNavigationBarHidden:cctest_navigationBarHidden animated:animated];</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">- (<span class="keyword">void</span>)cctest_viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">    [self viewWillDisappear:animated];</span><br><span class="line">    [self.navigationController setNavigationBarHidden:NO animated:animated];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：实现了导航栏状态统⼀管理,解决了⼤部分场景错位情况</p>
-<p>问题：</p>
-<ol>
-<li>对于A(隐藏)—&gt; B(隐藏)场景，切换中会有隐藏—显示—隐藏的过度动画；</li>
-</ol>
-<h4 id="3-设置导航控制器的代理-实现代理方法-在将要显示控制器中设置导航栏隐藏和显示"><a href="#3-设置导航控制器的代理-实现代理方法-在将要显示控制器中设置导航栏隐藏和显示" class="headerlink" title="3. 设置导航控制器的代理,实现代理方法,在将要显示控制器中设置导航栏隐藏和显示"></a>3. 设置导航控制器的代理,实现代理方法,在将要显示控制器中设置导航栏隐藏和显示</h4><p><img src="https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_6.png" alt="导航控制器代理"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// controller在被加载到navigationController内，将要展现前，判断并控制导航栏的显示或隐藏。</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated &#123;</span><br><span class="line">    BOOL isHidden = NO;</span><br><span class="line">    isHidden = viewController.cctest_navigationBarHidden;</span><br><span class="line">    [self setNavigationBarHidden:isHidden animated:animated];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<ol>
-<li><p>各页面导航栏隐藏状态通过VC的category特性，扩展属性统一注册管理，各页面只需初始化时声明一次</p>
-</li>
-<li><p>修改导航栏隐藏和显示时机，从页面内生命周期节点迁移至导航容器转场节点</p>
-</li>
-</ol>
-<p><em><strong>参考链接：</strong></em></p>
-<p><a target="_blank" rel="noopener" href="http://git.sankuai.com/projects/IOS/repos/sakuikit/browse/Classes/View/ViewController/MTNavigationController">http://git.sankuai.com/projects/IOS/repos/sakuikit/browse/Classes/View/ViewController/MTNavigationController</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.sankuai.com/mt/ios/ifst-docs/master/sakuikit/mtnavigationcontroller/">https://docs.sankuai.com/mt/ios/ifst-docs/master/sakuikit/mtnavigationcontroller/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/63b3f21f3d78">https://www.jianshu.com/p/63b3f21f3d78</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6803ead6df48">https://www.jianshu.com/p/6803ead6df48</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2021/07/01/iOS%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%88%87%E6%8D%A2%E4%BC%98%E5%8C%96/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
