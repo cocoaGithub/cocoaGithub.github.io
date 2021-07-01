@@ -106,7 +106,7 @@ categories: IOS
 // controller在被加载到navigationController内，将要展现前，判断并控制导航栏的显示或隐藏。
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     BOOL isHidden = NO;
-    isHidden = viewController.klm_navigationBarHidden;
+    isHidden = viewController.cctest_navigationBarHidden;
     [self setNavigationBarHidden:isHidden animated:animated];
 }
 ```
