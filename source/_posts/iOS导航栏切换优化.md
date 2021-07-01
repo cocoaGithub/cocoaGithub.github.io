@@ -7,7 +7,7 @@ categories: IOS
 
 ### 一、导航栏相关概念：导航栏组件的构成就是一个类似 MVC 的结构
 
-![ios_navbar](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_1.png)
+![ios_navbar](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_1.jpeg)
 
 1. 我们可以将 UINavigationController 看做是 C，UINavigationBar 看做是 V，而 UIViewController 和 UINavigationItem 组成的 Stack 可以看做是 M。
 
@@ -33,11 +33,11 @@ categories: IOS
 
 #### 1.push：ViewControllerA --->   viewControllerB
 
-![push](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_2.png)
+![push](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_2.jpeg)
 
 #### 2. pop：ViewControllerB---> viewControllerA
 
-![pop](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_3.png)
+![pop](https://raw.githubusercontent.com/cocoaGithub/cocoaGithub.github.io/hexo/source/img/ios_navbar_3.jpeg)
 
 三、导航栏隐藏和显示
 导航栏里的 Stack 中，每个 ViewController 都可以永久的影响导航栏样式，这种全局性的变化要求我们在实际开发中必须坚持“谁修改，谁复原”的原则，否则就会造成导航栏状态的混乱。
